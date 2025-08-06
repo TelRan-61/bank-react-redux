@@ -1,13 +1,12 @@
-import {store} from "../configureStore/store.js";
-import {useSyncExternalStore} from "react";
+import {useSelector} from "react-redux";
 
 const Balance = () => {
-    const {balance} = useSyncExternalStore(store.subscribe, store.getState);
+    const balance = useSelector(state => state.balance)
 
     return (
-        <div>
-            <h1>Bank</h1>
-            <h2>Balance = {balance}</h2>
+        <div className={'text-center text-uppercase'}>
+            <h1 className={'text-[gold] font-bold text-8xl'}>Iron Bank of Braavos</h1>
+            <h2 className={'text-[firebrick] text-7xl'}>Balance = {balance}</h2>
         </div>
     );
 };
